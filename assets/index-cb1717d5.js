@@ -2,7 +2,7 @@
       <div class="Header-main">
         <div class="Header-logo">
           <h1>
-            <a href="/">
+            <a href="/cientifico-vite">
               100tifi.co
             </a>
           </h1>
@@ -13,7 +13,7 @@
           </a>
         </div>
       </div>
-    `,c="https://rickandmortyapi.com/api/character/",d=async r=>{const e=r?`${c}${r}`:c;try{return await(await fetch(e)).json()}catch(a){console.log("Fetch Error",a)}},p=async()=>`
+    `,i="https://rickandmortyapi.com/api/character/",d=async r=>{const e=r?`${i}${r}`:i;try{return await(await fetch(e)).json()}catch(a){console.log("Fetch Error",a)}},p=async()=>`
     <div class="Characters">
       ${(await d()).results.map(a=>`
         <article class="Character-item">
@@ -24,7 +24,7 @@
         </article>
       `).join("")}
     </div>
-  `,l=()=>location.hash.slice(1).toLocaleLowerCase().split("/")[1]||"/",m=async()=>{const r=l(),e=await d(r);return`
+  `,l=()=>location.hash.slice(1).toLocaleLowerCase().split("/")[1]||"/",f=async()=>{const r=l(),e=await d(r);return`
     <div class="Characters-inner">
       <article class="Characters-card">
         <img src="${e.image}" alt="${e.name}">
@@ -39,8 +39,8 @@
         <h3>Last Location: ${e.location.name}</h3>
       </article>
     </div>
-  `},f=()=>`
+  `},m=()=>`
       <div class="Error404">
         <h2>Error 404</h2>
       </div>
-    `,v=r=>r.length<=3?r==="/"?r:"/:id":`/${r}`,i={"/":p,"/:id":m,"/contact":"Contact"},h=async()=>{const r=document.getElementById("header"),e=document.getElementById("content");r.innerHTML=await u();let a=l(),n=await v(a),t=i[n]?i[n]:f;e.innerHTML=await t()};window.addEventListener("load",h);window.addEventListener("hashchange",h);
+    `,v=r=>r.length<=3?r==="/"?r:"/:id":`/${r}`,c={"/":p,"/:id":f,"/contact":"Contact"},h=async()=>{const r=document.getElementById("header"),e=document.getElementById("content");r.innerHTML=await u();let a=l(),n=await v(a),t=c[n]?c[n]:m;e.innerHTML=await t()};window.addEventListener("load",h);window.addEventListener("hashchange",h);
